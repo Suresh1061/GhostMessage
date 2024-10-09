@@ -6,6 +6,10 @@ export const usernameValidation = z
     .max(20, "Username must be at most 20 characters")
     .regex(/^[a-zA-Z0-9]+$/, "Username can only contain letters and numbers");
 
+export const usernameSchema = z.object({
+    username: usernameValidation
+})
+
 export const EmailValidation = z
     .string()
     .email({ message: "Invalid email address" })
