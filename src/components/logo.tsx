@@ -6,16 +6,18 @@ type LogoProps = {
     className?: string
 }
 
-const Logo = ({ className = "w-48" }: LogoProps) => {
+const Logo = ({ className = "w-52" }: LogoProps) => {
     return (
         <Link href={"/"}>
             <Image
                 src={logo}
                 alt="GhostMessage Logo"
-                width={500}
-                height={500}
+                width={500} 
+                height={500} 
                 className={`${className}`}
-                priority={true}
+                priority={true} // Load eagerly for important images
+                sizes="(max-width: 640px) 200px, 220px" // Adjust based on screen width
+                layout="responsive" // Make it responsive
             />
         </Link>
     )
