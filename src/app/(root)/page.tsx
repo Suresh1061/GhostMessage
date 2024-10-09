@@ -16,7 +16,7 @@ import { Mail } from "lucide-react"
 const Home = () => {
   return (
     <>
-      <div className='flex flex-grow flex-col items-center justify-center px-4 md:px-24 py-12'>
+      <div className='flex flex-grow flex-col sm:items-center justify-center px-4 md:px-12 py-12'>
         <section className="text-center mb-8 md:mb-12">
           <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-center">
             Experience the freedom of anonymous messaging and say what&apos;s on your mind
@@ -30,7 +30,7 @@ const Home = () => {
           className="w-full max-w-md mx-auto">
           <CarouselContent>
             {messages.map((message, index) => (
-              <CarouselItem key={index} className="p-4 flex justify-center">
+              <CarouselItem key={index} className=" flex justify-center">
                 <div className="max-w-sm w-full border bg-card rounded-md shadow-sm p-4 sm:p-6">
                   <h3 className="text-lg sm:text-xl font-semibold">{message.title}</h3>
                   <div className="flex items-st mt-2 space-x-2">
