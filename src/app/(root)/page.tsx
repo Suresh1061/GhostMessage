@@ -32,14 +32,16 @@ const Home = () => {
             {messages.map((message, index) => (
               <CarouselItem key={index} className="p-4 flex justify-center">
                 <div className="max-w-sm w-full border bg-card rounded-md shadow-sm p-4 sm:p-6">
-                  <h3 className="text-xl font-semibold">{message.title}</h3>
-                  <div className="flex items-center mt-2 space-x-2">
-                    <Mail className="flex-shrink-0 h-5 w-5" />
-                    <p>{message.content}</p>
+                  <h3 className="text-lg sm:text-xl font-semibold">{message.title}</h3>
+                  <div className="flex items-st mt-2 space-x-2">
+                    <Mail className="flex-shrink-0 h-5 w-5 mt-0.5" />
+                    <div className="flex flex-col items-start">
+                      <p>{message.content}</p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        {message.received}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {message.received}
-                  </p>
                 </div>
               </CarouselItem>
             ))}

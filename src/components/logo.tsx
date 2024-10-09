@@ -15,6 +15,7 @@ const Logo = ({ className = "w-48" }: LogoProps) => {
                 width={500}
                 height={500}
                 className={`${className}`}
+                priority={true}
             />
         </Link>
     )

@@ -5,7 +5,7 @@ export default function AuthLayout({
 }>) {
     return (
         <main
-            className={`min-h-screen bg-gray-100 flex py-8 justify-center items-center`}
+            className={`min-h-screen bg-gray-100 flex  justify-center sm:items-center px-4 py-12`}
         >
             {children}
         </main>
