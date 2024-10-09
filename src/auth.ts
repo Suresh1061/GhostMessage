@@ -31,11 +31,7 @@ export const {
                 await dbConnect();
 
                 //find user by email
-                const user = await UserModel.findOne({ email: credentials.identifier })
-
-                if (!user?.isVerified) {
-                    throw new Error("Please verify your email first");
-                }
+                const user = await UserModel.findOne({ $or: [{ email: credentials.identifier }, { username: credentials.identifier }] });
 
                 //if user not found
                 if (!user) {
@@ -44,7 +40,6 @@ export const {
 
                 //compare password with hashed password
                 const isPasswordMatch = await bcryptjs.compare(credentials.password, user.password)
-                console.log(isPasswordMatch)
 
                 if (isPasswordMatch) {
                     return user;

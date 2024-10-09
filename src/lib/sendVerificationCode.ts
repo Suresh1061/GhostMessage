@@ -9,8 +9,6 @@ export async function sendVerificationCode(
     code: string,
     type: "verify" | "reset"
 ): Promise<ApiResponse> {
-    console.log(email, code, type)
-    console.log(process.env.EMAIL_USER, process.env.EMAIL_USER_PASS)
     try {
         const transport = nodemailer.createTransport({
             service: "Gmail",

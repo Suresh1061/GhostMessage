@@ -9,11 +9,11 @@ const emailTemplate = (title: string, message: string, otp: string, buttonColor:
         <div style="text-align: center; margin: 20px 0;">
             <span style="display: inline-block; font-size: 24px; color: #ffffff; background-color: ${buttonColor}; padding: 10px 20px; border-radius: 5px;">${otp}</span>
         </div>
-        <p style="color: #555;">This code is valid for the next 10 minutes.</p>
+        <p style="color: #555;">This code is valid for the next 15 minutes.</p>
         <p style="color: #555;">If you did not request this, please ignore this email.</p>
         <div style="text-align: center; margin-top: 30px;">
             <p style="color: #999;">Thank you for using our service!</p>
-            <p style="color: #999;">&mdash; The Team</p>
+            <p style="color: #999;">&mdash; The Team, GhostMessage</p>
         </div>
     </div>
     `;

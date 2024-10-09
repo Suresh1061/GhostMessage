@@ -17,7 +17,6 @@ const Logo = ({ className = "w-52" }: LogoProps) => {
                 className={`${className}`}
                 priority={true} // Load eagerly for important images
                 sizes="(max-width: 640px) 200px, 220px" // Adjust based on screen width
-                layout="responsive" // Make it responsive
             />
         </Link>
     )

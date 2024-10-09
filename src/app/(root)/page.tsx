@@ -8,7 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import messages from "@/messages.json"
+import messages from "@/data/messages.json"
 import Autoplay from "embla-carousel-autoplay"
 import { Mail } from "lucide-react"
 

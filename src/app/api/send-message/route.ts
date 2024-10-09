@@ -34,7 +34,7 @@ export async function POST(request: Request) {
         }, { status: 200 });
     }
     catch (error) {
-        console.log("Error while sending message", error);
+        ("Error while sending message", error);
         return NextResponse.json({
             success: false,
             message: "Error while sending message",

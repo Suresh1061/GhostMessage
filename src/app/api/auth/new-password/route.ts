@@ -7,10 +7,10 @@ export async function POST(request: Request) {
     await dbConnect();
     try {
         const { email, password } = await request.json();
-        console.log(email, password)
+        const decodedEmail = decodeURIComponent(email)
 
         //getting user from database
-        const existingUser = await UserModel.findOne({ email });
+        const existingUser = await UserModel.findOne({ email:decodedEmail });
         if (!existingUser) {
             return NextResponse.json({
                 success: false,

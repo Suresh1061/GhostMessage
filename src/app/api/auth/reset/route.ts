@@ -21,7 +21,6 @@ export async function POST(request: Request) {
 
         //generate reset code and send to the user registered email
         const code = generateCode();
-        await sendVerificationCode(email, code, "reset");
 
         //save the reset code and its expiry to the database
         user.passwordResetCode = code;

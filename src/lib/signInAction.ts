@@ -27,7 +27,7 @@ export const login = async (data: z.infer<typeof LoginSchema>) => {
     }
 
     if (!existingUser.isVerified) {
-        return { error: "Email is not verified!" }
+        return { error: "Email is not verified, please register again with verified email" }
     }
 
     try {
