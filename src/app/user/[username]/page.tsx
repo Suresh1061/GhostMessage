@@ -26,7 +26,7 @@ const Page = () => {
   })
 
   const watchMessageContent = form.watch('content')
-  const initialSuggestMessages = "What's your favorite movie?||Do you have any pets?||What's your dream job?";
+  const initialSuggestMessages = "Hi bro, whats up || You are a good person || What's your favorite movie?";
   const seperator = "||"
 
   // method for splitting message based on seperator
