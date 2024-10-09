@@ -71,13 +71,14 @@ const HandleMessageAcceptance = () => {
                 checked={acceptMessages}
                 onCheckedChange={handleSwitchChange}
                 disabled={isPending}
+                aria-label="Accept Messages"
             />
             <p>
                 Accept Messages :{" "}
                 {acceptMessages ? (
-                    <span className="text-emerald-500">On</span>
+                    <span className="text-emerald-600 font-semibold">On</span>
                 ) : (
-                    <span className="text-red-500">Off</span>
+                    <span className="text-red-600 font-semibold">Off</span>
                 )}
             </p>
         </div>

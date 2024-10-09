@@ -38,7 +38,7 @@ const DeleteMessage = ({ messageId, onMessageDelete }: DeleteMessageProps) => {
     return (
         <AlertDialog>
             <AlertDialogTrigger asChild>
-                <Button variant="destructive" className="px-2.5">
+                <Button variant="destructive" className="px-2.5" aria-label="Delete message">
                     <Trash className="h-5 w-5"/>
                 </Button>   
             </AlertDialogTrigger>

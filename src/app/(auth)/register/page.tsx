@@ -8,8 +8,9 @@ import { Button } from '@/components/ui/button';
 import InputField from '@/components/input-field';
 import { useRouter } from 'next/navigation';
 import CardWrapper from '@/components/auth/card-wrapper';
-import FormError from '@/components/form-error';
-import FormSuccess from '@/components/form-success';
+import dynamic from "next/dynamic";
+const FormError = dynamic(() => import('@/components/form-error'), { ssr: false });
+const FormSuccess = dynamic(() => import('@/components/form-success'), { ssr: false });
 import { useDebounceCallback } from 'usehooks-ts'
 import { registerSchema } from '@/schemas';
 import axios, { AxiosError } from "axios";

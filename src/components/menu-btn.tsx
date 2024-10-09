@@ -50,7 +50,7 @@ const MenuBtn = ({ session }: MenuBtnProps) => {
             <div className='block sm:hidden'>
                 <DropdownMenu>
                     <DropdownMenuTrigger className="!ring-0 !border-none !shadow-none !focus:border-none !focus:ring-0 !outline-none" asChild >
-                        <Button variant="outline" className='px-3'>
+                        <Button variant="outline" className='px-3' aria-label='menu button'>
                             <Menu className='h-6 w-6 flex-shrink-0' />
                         </Button>
                     </DropdownMenuTrigger>

@@ -4,13 +4,14 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { useState, useTransition } from "react";
 import CardWrapper from "@/components/auth/card-wrapper";
-import FormError from "@/components/form-error";
-import FormSuccess from "@/components/form-success";
 import { ApiResponse } from "@/types/ApiResponse";
 import { verificationCodeSchema } from "@/schemas";
 import InputField from "@/components/input-field";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ResendCode from "@/components/auth/resend-code";
+import dynamic from "next/dynamic";
+const FormError = dynamic(() => import('@/components/form-error'), { ssr: false });
+const FormSuccess = dynamic(() => import('@/components/form-success'), { ssr: false });
 import axios, { AxiosError } from "axios";
 import * as z from "zod";
 

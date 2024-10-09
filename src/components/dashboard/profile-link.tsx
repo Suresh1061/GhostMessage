@@ -33,8 +33,9 @@ const ProfileLink = ({ username }: ProfileLinkProps) => {
                     value={profileUrl}
                     disabled
                     className='input input-bordered w-full p-2 mr-2'
+                    aria-label='profile link'
                 />
-                <Button onClick={copyToClipboard}>
+                <Button onClick={copyToClipboard} aria-label='copy profile link'>
                     {isCopy ? 'Copied!' : 'Copy'}
                 </Button>
             </div>

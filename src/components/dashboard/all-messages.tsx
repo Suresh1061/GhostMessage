@@ -5,9 +5,11 @@ import { ApiResponse } from "@/types/ApiResponse";
 import axios, { AxiosError } from "axios";
 import { useCallback, useEffect, useState, useTransition } from "react";
 import toast from "react-hot-toast";
-import MessageCard from "../message-card";
+// import MessageCard from "../message-card";
 import { Button } from "../ui/button";
 import { Loader2, RefreshCcw } from "lucide-react";
+import dynamic from "next/dynamic";
+const MessageCard = dynamic(() => import('../message-card'), { ssr: false });
 
 const AllMessages = () => {
     const [messages, setMessages] = useState<Message[]>([]);
@@ -55,6 +57,8 @@ const AllMessages = () => {
                     e.preventDefault();
                     fetchMessages(true);
                 }}
+                disabled={isPending}
+                aria-label="refresh messages"
             >
                 {isPending ? (
                     <Loader2 className="h-4 w-4 animate-spin" />

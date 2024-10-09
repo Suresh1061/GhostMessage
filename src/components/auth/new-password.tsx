@@ -9,8 +9,9 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { NewPasswordSchema } from "@/schemas"
 import { ApiResponse } from "@/types/ApiResponse"
 import InputField from "../input-field"
-import FormError from "../form-error"
-import FormSuccess from "../form-success"
+import dynamic from "next/dynamic";
+const FormError = dynamic(() => import('@/components/form-error'), { ssr: false });
+const FormSuccess = dynamic(() => import('@/components/form-success'), { ssr: false });
 import { useRouter } from "next/navigation"
 import axios, { AxiosError } from "axios"
 import { z } from "zod"
