@@ -3,6 +3,9 @@ import UserModel from "@/model/user";
 import { usernameSchema } from "@/schemas";
 import { NextResponse } from "next/server";
 
+// Force Next.js to treat this API route as dynamic
+export const dynamic = "force-dynamic";
+
 export async function GET(request: Request) {
     // Connect to the database
     await dbConnect();
