@@ -29,11 +29,19 @@ const topics = [
 ];
 
 // Helper function to generate a random prompt
+// const getRandomPrompt = () => {
+//     const randomTopic = topics[Math.floor(Math.random() * topics.length)];
+//     const prompt = `Generate three open-ended questions or sentences about the topic '${randomTopic}'. Each question or sentence should encourage thoughtful conversations and be under 200 words. The output should be a single string, with each question or sentence separated by '||'. Do not add '||' at the start or end of the string. Do not include numbers, bullet points, special characters, or any other symbols. The output should only contain plain sentences or questions separated by '||'.`;
+//     return prompt;
+// };
+
 const getRandomPrompt = () => {
     const randomTopic = topics[Math.floor(Math.random() * topics.length)];
-    const prompt = `Generate three open-ended questions or sentences about the topic '${randomTopic}'. Each question or sentence should encourage thoughtful conversations and be under 200 words. The output should be a single string, with each question or sentence separated by '||'. Do not add '||' at the start or end of the string. Do not include numbers, bullet points, special characters, or any other symbols. The output should only contain plain sentences or questions separated by '||'.`;
+    const timestamp = new Date().getTime();  // Add a timestamp to ensure randomness
+    const prompt = `Generate three open-ended suggestions type sentences about the topic '${randomTopic}' at time ${timestamp}. Each question or sentence should encourage thoughtful conversations and be under 200 words. The output should be a single string, with each question or sentence separated by '||'. Do not add '||' at the start or end of the string. Do not include numbers, bullet points, special characters, or any other symbols. The output should only contain plain sentences or questions separated by '||'`;
     return prompt;
 };
+
 
 
 export async function GET() {
@@ -44,10 +52,20 @@ export async function GET() {
         const result = await model.generateContent(prompt);
         const response = result.response.text();
 
-        return NextResponse.json({
-            success: true,
-            message: response, // Send generated text
-        }, { status: 200 });
+        return NextResponse.json(
+            {
+                success: true,
+                message: response,
+            },
+            {
+                status: 200,
+                headers: {
+                    'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+                    'Pragma': 'no-cache',
+                    'Expires': '0',
+                },
+            }
+        );
     } catch (error) {
         console.log("Error generating messages", error);
         return NextResponse.json({

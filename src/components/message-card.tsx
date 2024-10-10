@@ -1,9 +1,9 @@
 import { Message } from '@/model/user'
 import React from 'react'
 import { Card, CardContent} from './ui/card'
-// import DeleteMessage from './delete-message'
-import dynamic from 'next/dynamic'
-const DeleteMessage = dynamic(() => import('./delete-message'), { ssr: false })
+import DeleteMessage from './delete-message'
+// import dynamic from 'next/dynamic'
+// const DeleteMessage = dynamic(() => import('./delete-message'), { ssr: false })
 
 type messageCardProps = {
     message: Message,
