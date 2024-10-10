@@ -32,11 +32,15 @@ const LoadSuggestMessages = ({ setText }: LoadSuggestMessagesProps) => {
         startTransition(async () => {
             try {
                 const data = await fetch('/api/suggest-messages', {
-                    next:{
-                        revalidate: 60
+                    next: {
+                        revalidate: 0, // Disable ISR
                     },
-                    cache: 'no-store'
-                })
+                    cache: 'no-store',  // Prevent browser caching
+                    headers: {
+                        'Cache-Control': 'no-store, no-cache', // Ensure fresh data is fetched
+                    },
+                });
+
                 const response: ApiResponse =await data.json()
                 if (response.success) {
                     setText(response.message)
