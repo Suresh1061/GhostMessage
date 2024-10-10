@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GENERATIVE_AI_API_KEY!);
-const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+// const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // Adjectives array for variation
 const topics = [
@@ -38,7 +39,7 @@ const topics = [
 const getRandomPrompt = () => {
     const randomTopic = topics[Math.floor(Math.random() * topics.length)];
     const timestamp = new Date().getTime();  // Add a timestamp to ensure randomness
-    const prompt = `Generate three open-ended suggestions type sentences about the topic '${randomTopic}' at time ${timestamp}. Each question or sentence should encourage thoughtful conversations and be under 200 words. The output should be a single string, with each question or sentence separated by '||'. Do not add '||' at the start or end of the string. Do not include numbers, bullet points, special characters, or any other symbols. The output should only contain plain sentences or questions separated by '||'`;
+    const prompt = `Generate three open-ended suggestions or advice type sentences about the topic '${randomTopic}' at time ${timestamp}. Each question or sentence should encourage thoughtful conversations and be under 200 words. The output should be a single string, with each suggestions or advice type sentences are separated by '||'. Do not add '||' at the start or end of the string. Do not include numbers, bullet points, special characters, or any other symbols. The output should only contain plain sentences or questions separated by '||'`;
     return prompt;
 };
 

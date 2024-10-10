@@ -61,7 +61,7 @@ const MenuBtn = ({ session }: MenuBtnProps) => {
                                     <Gauge className="h-4 w-4 mr-2" />
                                     Dashboard
                                 </DropdownMenuItem>
-                                <DropdownMenuItem onClick={() => logOut}>
+                                <DropdownMenuItem onClick={() => logOut()}>
                                     <Power className="h-4 w-4 mr-2" />
                                     Logout
                                 </DropdownMenuItem>
