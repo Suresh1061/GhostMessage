@@ -1,11 +1,10 @@
-'use client'
-
 import axios from 'axios'
 import { ApiResponse } from '@/types/ApiResponse'
 import { AxiosError } from 'axios'
 import React, { useTransition } from 'react'
 import toast from 'react-hot-toast'
 import { Button } from '../ui/button'
+import GeneratePrompt from '@/lib/generate-prompt'
 
 type LoadSuggestMessagesProps = {
     setText: (text: string) => void
@@ -16,9 +15,10 @@ const LoadSuggestMessages = ({ setText }: LoadSuggestMessagesProps) => {
 
     // generate suggest messages
     const loadSuggestMessages = () => {
+        const prompt = GeneratePrompt();
         startTransition(async () => {
             try {
-                const { data: response } = await axios.get<ApiResponse>('/api/suggest-messages')
+                const { data: response } = await axios.post<ApiResponse>('/api/suggest-messages', { prompt })
                 if (response.success) {
                     setText(response.message)
                 } else {
@@ -30,32 +30,6 @@ const LoadSuggestMessages = ({ setText }: LoadSuggestMessagesProps) => {
             }
         })
     }
-
-    // const loadSuggestMessages = () => {
-    //     startTransition(async () => {
-    //         try {
-    //             const data = await fetch('/api/suggest-messages', {
-    //                 next: {
-    //                     revalidate: 0, // Disable ISR
-    //                 },
-    //                 cache: 'no-store',  // Prevent browser caching
-    //                 headers: {
-    //                     'Cache-Control': 'no-store, no-cache', // Ensure fresh data is fetched
-    //                 },
-    //             });
-
-    //             const response: ApiResponse =await data.json()
-    //             if (response.success) {
-    //                 setText(response.message)
-    //             } else {
-    //                 toast.error(response.message)
-    //             }
-    //         } catch (error) {
-    //             const axiosError = error as AxiosError<ApiResponse>
-    //             toast.error(axiosError.response?.data?.message || "Error while registering. Please try again later.")
-    //         }
-    //     })
-    // }
 
     return (
         <>

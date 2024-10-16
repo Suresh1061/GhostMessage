@@ -6,9 +6,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { messageSchema } from '@/schemas'
 import { Separator } from "@/components/ui/separator"
 import SuggestMessageBtn from "@/components/user/suggest-message-btn"
-// import dynamic from 'next/dynamic'
-// const LoadSuggestMessages = dynamic(() => import('@/components/user/load-suggest-messages'), { ssr: true })
-import LoadSuggestMessages from '@/components/user/load-suggest-messages'
+import dynamic from 'next/dynamic'
+const LoadSuggestMessages = dynamic(() => import('@/components/user/load-suggest-messages'), { ssr: true })
 import SendMessage from "@/components/user/send-message"
 import { Button } from "@/components/ui/button"
 import { useMemo, useState } from "react"
